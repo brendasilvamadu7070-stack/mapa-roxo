@@ -1,0 +1,328 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #11101c;
+    color: #fff;
+    font-family: monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.game {
+    width: 850px;
+    max-width: 100%;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 15px;
+}
+
+.top h1 {
+    font-size: 30px;
+    letter-spacing: 5px;
+    color: #f4a9d8;
+}
+
+.top p {
+    color: #aaa2c9;
+    margin-top: 5px;
+    font-size: 11px;
+}
+
+#world-label {
+    color: #a4e5d1;
+    font-size: 12px;
+    text-align: right;
+}
+
+.status {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    background: #292438;
+    border: 3px solid #65577e;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+.game-area {
+    position: relative;
+    border: 4px solid #75638d;
+    background: #080810;
+    overflow: hidden;
+}
+
+canvas {
+    width: 100%;
+    height: auto;
+    display: block;
+    image-rendering: pixelated;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(9, 8, 19, 0.94);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    z-index: 5;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.start-content {
+    text-align: center;
+    max-width: 420px;
+    line-height: 1.7;
+}
+
+.start-content h2 {
+    font-size: 34px;
+    color: #f5acd9;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.start-content p {
+    color: #c3bad0;
+    margin-bottom: 20px;
+}
+
+button {
+    background: #39304f;
+    border: 3px solid #a88cc9;
+    color: white;
+    padding: 12px 18px;
+    font-family: monospace;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.15s;
+}
+
+button:hover {
+    background: #765a9e;
+    transform: translateY(-2px);
+}
+
+.dialogue {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 145px;
+    background: rgba(15, 13, 27, 0.97);
+    border-top: 4px solid #b69acb;
+    padding: 18px;
+    z-index: 3;
+}
+
+.dialogue-name {
+    color: #f4a9d8;
+    font-weight: bold;
+    font-size: 17px;
+    margin-bottom: 12px;
+}
+
+.dialogue p {
+    color: #eee;
+    line-height: 1.6;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+#dialogue-next {
+    float: right;
+    padding: 7px 14px;
+}
+
+.battle-box {
+    width: 100%;
+    max-width: 550px;
+    text-align: center;
+}
+
+.enemy-area {
+    margin-bottom: 12px;
+}
+
+.enemy-sprite {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 12px;
+    background: #34304b;
+    border: 4px solid #8c7ba9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    image-rendering: pixelated;
+}
+
+.enemy-area h2 {
+    color: #f2a9d5;
+    margin-bottom: 8px;
+}
+
+.health-bar {
+    height: 13px;
+    background: #3a1826;
+    border: 2px solid #8a647a;
+    margin: 8px auto;
+    max-width: 250px;
+}
+
+.health-fill {
+    width: 100%;
+    height: 100%;
+    background: #e85b81;
+    transition: width 0.3s;
+}
+
+.enemy-area p {
+    font-size: 11px;
+    color: #c8c0d4;
+    margin-top: 5px;
+}
+
+#battle-message {
+    background: #28233a;
+    border: 2px solid #716184;
+    padding: 12px;
+    margin: 12px 0;
+    color: #f1d9ed;
+    min-height: 45px;
+    font-size: 13px;
+}
+
+.party {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.member {
+    padding: 10px 5px;
+    background: #272438;
+    border: 2px solid #6b5c7e;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 11px;
+}
+
+.member strong {
+    color: #f3b5dc;
+}
+
+.member small {
+    color: #b7d5bd;
+}
+
+#battle-actions,
+#emotion-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+#battle-actions button,
+#emotion-actions button {
+    flex: 1;
+    min-width: 95px;
+}
+
+#battle-continue {
+    margin-top: 15px;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    background: #201d30;
+    border: 3px solid #4e4366;
+    padding: 13px;
+    margin-top: 10px;
+    color: #c4b9d4;
+    font-size: 11px;
+}
+
+footer {
+    color: #69647b;
+    text-align: center;
+    font-size: 10px;
+    margin-top: 15px;
+}
+
+body.horror {
+    background: #10070d;
+}
+
+body.horror .top h1 {
+    color: #b64a60;
+}
+
+body.horror .status {
+    background: #28141e;
+    border-color: #79374d;
+}
+
+body.horror .game-area {
+    border-color: #963d51;
+}
+
+body.horror .controls {
+    background: #26121d;
+    border-color: #79374d;
+}
+
+@media(max-width: 600px) {
+    .top {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #world-label {
+        text-align: center;
+    }
+
+    .top h1 {
+        font-size: 23px;
+    }
+
+    .controls {
+        justify-content: center;
+    }
+
+    .member {
+        font-size: 9px;
+    }
+
+    .dialogue p {
+        font-size: 12px;
+    }
+
+    .start-content h2 {
+        font-size: 24px;
+    }
+}

@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOST IN DREAMS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="game">
+
+        <header class="top">
+            <div>
+                <h1>LOST IN DREAMS</h1>
+                <p>CAPÍTULO 1 — O JARDIM ESQUECIDO</p>
+            </div>
+            <div id="world-label">REINO DOS SONHOS</div>
+        </header>
+
+        <section class="status">
+            <span id="location">Jardim das Flores</span>
+            <span id="memory-count">MEMÓRIAS: 0/3</span>
+        </section>
+
+        <section class="game-area">
+
+            <canvas id="game" width="800" height="500"></canvas>
+
+            <!-- Tela inicial -->
+            <div id="start-screen" class="overlay">
+                <div class="start-content">
+                    <h2>LOST IN DREAMS</h2>
+                    <p>Alguns sonhos escondem coisas que deveriam permanecer esquecidas.</p>
+                    <button id="start-button">NOVO JOGO</button>
+                </div>
+            </div>
+
+            <!-- Caixa de diálogo -->
+            <div id="dialogue" class="dialogue hidden">
+                <div class="dialogue-name" id="dialogue-name">NICO</div>
+                <p id="dialogue-text"></p>
+                <button id="dialogue-next">CONTINUAR</button>
+            </div>
+
+            <!-- Sistema de batalha -->
+            <div id="battle-screen" class="overlay hidden">
+                <div class="battle-box">
+
+                    <div class="enemy-area">
+                        <div id="enemy-sprite" class="enemy-sprite">?</div>
+                        <h2 id="enemy-name">INIMIGO</h2>
+                        <div class="health-bar">
+                            <div id="enemy-health" class="health-fill"></div>
+                        </div>
+                        <p id="enemy-hp">100 / 100 HP</p>
+                        <p id="enemy-emotion">EMOÇÃO: NORMAL</p>
+                    </div>
+
+                    <div id="battle-message">
+                        Um inimigo apareceu!
+                    </div>
+
+                    <div class="party">
+                        <div class="member">
+                            <strong>NICO</strong>
+                            <span id="nico-hp">100/100 HP</span>
+                            <small id="nico-emotion">NORMAL</small>
+                        </div>
+
+                        <div class="member">
+                            <strong>LUNA</strong>
+                            <span id="luna-hp">80/80 HP</span>
+                            <small id="luna-emotion">NORMAL</small>
+                        </div>
+
+                        <div class="member">
+                            <strong>KAI</strong>
+                            <span id="kai-hp">90/90 HP</span>
+                            <small id="kai-emotion">NORMAL</small>
+                        </div>
+                    </div>
+
+                    <div id="battle-actions">
+                        <button data-action="attack">ATACAR</button>
+                        <button data-action="emotion">EMOÇÃO</button>
+                        <button data-action="item">ITEM</button>
+                        <button data-action="flee">FUGIR</button>
+                    </div>
+
+                    <div id="emotion-actions" class="hidden">
+                        <button data-emotion="happy">FELIZ</button>
+                        <button data-emotion="sad">TRISTE</button>
+                        <button data-emotion="angry">BRAVO</button>
+                        <button data-emotion="normal">NORMAL</button>
+                    </div>
+
+                    <button id="battle-continue" class="hidden">
+                        CONTINUAR
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- Tela final -->
+            <div id="ending-screen" class="overlay hidden">
+                <div class="start-content">
+                    <h2>FIM DO CAPÍTULO 1</h2>
+                    <p>O jardim nunca foi tão silencioso...</p>
+                    <p id="ending-description"></p>
+                    <button id="restart-button">JOGAR NOVAMENTE</button>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="controls">
+            <p><strong>W A S D</strong> ou <strong>SETAS</strong> — Movimentar</p>
+            <p><strong>E</strong> — Interagir</p>
+            <p><strong>ESC</strong> — Fechar menus</p>
+        </section>
+
+        <footer>
+            LOST IN DREAMS © 2026 — UM MUNDO ENTRE SONHOS E MEMÓRIAS
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
